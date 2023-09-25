@@ -1,152 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task-5</title>
+  <title>Document</title>
   <style>
-  
-    form {
-      background-image: linear-gradient(to bottom right, lightyellow, lightpink);
-      margin: 30px auto;
-      max-width: 800px;
-      border: 2px solid black;
-      padding: 20px;
-    }
-  
-    table {
-      width: 100%;
-    }
-    table, td {
-      border: none;
-    }
-    td {
-      padding: 10px;
-    }
-    input[type="text"],
-    input[type="email"],
-    input[type="password"],
-    input[type="number"],
-    select,
-    textarea {
-      width: 100%;
-      padding: 5px;
-    }
-    .error-label {
+    .error {
       color: red;
     }
+
+    .error-border {
+      border: 1px solid red;
+    }
   </style>
-  
 </head>
 <body>
-  <form id="registration-form">
-    <table>
-      <caption style="color: blue;">Registration Form</caption>
-      <tr>
-        <td><label for="first">First Name:</label></td>
-        <td><input type="text" name="first" id="first"></td>
-        <td><span class="error-label" id="first-error"></span></td>
-      </tr>
-      <tr>
-        <td><label for="last">Last Name:</label></td>
-        <td><input type="text" name="last" id="last"></td>
-        <td><span class="error-label" id="last-error"></span></td>
-      </tr>
-      <tr>
-        <td><label>Email</label></td>
-        <td><input type="email" name="email" id="email"></td>
-        <td><span class="error-label" id="email-error"></span></td>
-      </tr>
-      <tr>
-        <td><label for="password">Password:</label></td>
-        <td><input type="password" id="password" name="password"></td>
-        <td><span class="error-label" id="password-error"></span></td>
-      </tr>
-      <tr>
-        <td><label for="rePassword">Re Password:</label></td>
-        <td><input type="password" id="rePassword" name="rePassword"></td>
-        <td><span class="error-label" id="rePassword-error"></span></td>
-      </tr>
-      <tr>
-        <td><label>Gender:</label></td>
-        <td>
-          <label><input type="radio" name="gender" value="Male"> Male</label><br>
-          <label><input type="radio" name="gender" value="Female"> Female</label>
-        </td>
-      </tr>
-      <tr>
-        <td><label>Age:</label></td>
-        <td><input type="number" name="age" id="age"></td>
-        <td><span class="error-label" id="age-error"></span></td>
-      </tr>
-      <tr>
-        <td><label>Phone Number</label></td>
-        <td><input type="number" name="number" id="number"></td>
-        <td><span class="error-label" id="number-error"></span></td>
-      </tr>
-      <tr>
-        <td><label>Address</label></td>
-        <td><textarea name="address" id="address"></textarea></td>
-        <td><span class="error-label" id="address-error"></span></td>
-      </tr>
-      <tr>
-        <td><label>State</label></td>
-        <td><input type="text" name="state" id="state"></td>
-        <td><span class="error-label" id="state-error"></span></td>
-      </tr>
-      <tr>
-        <td><label>Country</label></td>
-        <td>
-          <select style="width: 100%;">
-            <option>Choose your Country</option>
-            <option>India</option>
-            <option>USA</option>
-            <option>Brazil</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><label>Languages Known</label></td>
-        <td>
-          <label><input type="checkbox">English</label>
-          <label><input type="checkbox">Kannada</label>
-          <label><input type="checkbox">Hindi</label>
-          <label><input type="checkbox">Telugu</label>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2"><input type="checkbox">Hereby I declare all the given details are true</td>
-      </tr>
-      <tr>
-        <td colspan="2" align="right">Log in to <a href="https://ethnus.com/">Ethnus</a> website</td>
-      </tr>
-    </table>
-    <div align="center">
-      <button type="submit" id="register-button" style="background-color: red;width: 100px;height: 30px;">Register</button>
-    </div>
+  <form id="contactForm" onsubmit="return validateForm()" align="center">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" class="error-border">
+    <span id="nameError" class="error"></span>
+    <br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" class="error-border">
+    <span id="emailError" class="error"></span>
+    <br><br>
+
+    <label for="website">Website:</label>
+    <input type="url" id="website" name="website" class="error-border">
+    <span id="websiteError" class="error"></span>
+    <br><br>
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" class="error-border"></textarea>
+    <span id="messageError" class="error"></span>
+    <br><br>
+
+    <input type="submit" value="Submit">
   </form>
-  
 
   <script>
-    const form = document.getElementById("registration-form");
-    const registerButton = document.getElementById("register-button");
+    function validateForm() {
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const website = document.getElementById("website").value;
+      const message = document.getElementById("message").value;
 
-    registerButton.addEventListener("click", function (event) {
-      event.preventDefault();
+      clearErrors();
 
-      const fieldsToValidate = ["first", "last", "email", "password", "rePassword", "age", "number", "address", "state"];
-      fieldsToValidate.forEach((fieldName) => {
-        const field = document.getElementById(fieldName);
-        const errorLabel = document.getElementById(fieldName + "-error");
+      let hasErrors = false;
 
-        if (!field.value) {
-          errorLabel.textContent = "POOR";
-        } else {
-          errorLabel.textContent = "";
-        }
-      });
+      if (name === "") {
+        document.getElementById("nameError").textContent = "This field is required";
+        document.getElementById("name").classList.add("error-border");
+        hasErrors = true;
+      }
 
-    });
+      if (email === "") {
+        document.getElementById("emailError").textContent = "Email is required";
+        document.getElementById("email").classList.add("error-border");
+        hasErrors = true;
+      } else if (!isValidEmail(email)) {
+        document.getElementById("emailError").textContent = "A valid email is required";
+        document.getElementById("email").classList.add("error-border");
+        hasErrors = true;
+      }
+
+      if (website === "") {
+        document.getElementById("websiteError").textContent = "This field is required";
+        document.getElementById("website").classList.add("error-border");
+        hasErrors = true;
+      } else if (!isValidURL(website)) {
+        document.getElementById("websiteError").textContent = "A valid URL is required";
+        document.getElementById("website").classList.add("error-border");
+        hasErrors = true;
+      }
+
+      if (message === "") {
+        document.getElementById("messageError").textContent = "This field is required";
+        document.getElementById("message").classList.add("error-border");
+        hasErrors = true;
+      }
+
+      if (!hasErrors) {
+        return true;
+      }
+
+      // Prevent the form from submitting when there are errors
+      return false;
+    }
+
+    function clearErrors() {
+      const errorElements = document.getElementsByClassName("error");
+      for (let i = 0; i < errorElements.length; i++) {
+        errorElements[i].textContent = "";
+      }
+
+      const errorBorders = document.getElementsByClassName("error-border");
+      for (let i = 0; i < errorBorders.length; i++) {
+        errorBorders[i].classList.remove("error-border");
+      }
+    }
+
+    function isValidEmail(email) {
+      return /\S+@\S+\.\S+/.test(email);
+    }
+
+    function isValidURL(url) {
+      return /^(ftp|http|https):\/\/[^ "]+$/.test(url);
+    }
   </script>
 </body>
 </html>
