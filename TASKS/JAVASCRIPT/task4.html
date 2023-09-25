@@ -4,7 +4,7 @@
     <title>Display Date on Button Click</title>
 </head>
 <body>
-    <button id="dateButton1">Show Date </button>
+    <button id="dateButton1">Show Date</button>
     <p id="dateDisplay1"></p>
 
     <button id="dateButton2">Show Time</button>
@@ -12,12 +12,12 @@
 
     <script>
         function displayDate1() {
-            var options = { day: 'numeric', month: 'long', year: 'numeric' };
+            var options = { day: 'numeric', month: 'short', year: 'numeric' };
             var currentDate = new Date();
             var formattedDate = currentDate.toLocaleDateString(undefined, options);
             formattedDate = formattedDate.replace(/ /g, '/'); // Replace spaces with forward slashes
             var dateDisplay = document.getElementById("dateDisplay1");
-            dateDisplay.innerHTML =  formattedDate;
+            dateDisplay.innerHTML = formattedDate;
         }
 
         function displayDate2() {
