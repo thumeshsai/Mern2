@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Document</title>
+  <style>
+    .error {
+      color: red;
+    }
+
+    .error-border {
+      border: 1px solid red;
+    }
+  </style>
+</head>
+<body>
+  <form id="contactForm" onsubmit="return validateForm()" align="center">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" class="error-border">
+    <span id="nameError" class="error"></span>
+    <br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" class="error-border">
+    <span id="emailError" class="error"></span>
+    <br><br>
+
+    <label for="website">Website:</label>
+    <input type="url" id="website" name="website" class="error-border">
+    <span id="websiteError" class="error"></span>
+    <br><br>
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" class="error-border"></textarea>
+    <span id="messageError" class="error"></span>
+    <br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    function validateForm() {
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const website = document.getElementById("website").value;
+      const message = document.getElementById("message").value;
+
+      clearErrors();
+
+      let hasErrors = false;
+
+      if (name === "") {
+        document.getElementById("nameError").textContent = "This field is required";
+        document.getElementById("name").classList.add("error-border");
+        hasErrors = true;
+      }
+
+      if (email === "") {
+        document.getElementById("emailError").textContent = "Email is required";
+        document.getElementById("email").classList.add("error-border");
+        hasErrors = true;
+      } else if (!isValidEmail(email)) {
+        document.getElementById("emailError").textContent = "A valid email is required";
+        document.getElementById("email").classList.add("error-border");
+        hasErrors = true;
+      }
+
+      if (website === "") {
+        document.getElementById("websiteError").textContent = "This field is required";
+        document.getElementById("website").classList.add("error-border");
+        hasErrors = true;
+      } else if (!isValidURL(website)) {
+        document.getElementById("websiteError").textContent = "A valid URL is required";
+        document.getElementById("website").classList.add("error-border");
+        hasErrors = true;
+      }
+
+      if (message === "") {
+        document.getElementById("messageError").textContent = "This field is required";
+        document.getElementById("message").classList.add("error-border");
+        hasErrors = true;
+      }
+
+      if (!hasErrors) {
+        return true;
+      }
+
+      // Prevent the form from submitting when there are errors
+      return false;
+    }
+
+    function clearErrors() {
+      const errorElements = document.getElementsByClassName("error");
+      for (let i = 0; i < errorElements.length; i++) {
+        errorElements[i].textContent = "";
+      }
+
+      const errorBorders = document.getElementsByClassName("error-border");
+      for (let i = 0; i < errorBorders.length; i++) {
+        errorBorders[i].classList.remove("error-border");
+      }
+    }
+
+    function isValidEmail(email) {
+      return /\S+@\S+\.\S+/.test(email);
+    }
+
+    function isValidURL(url) {
+      return /^(ftp|http|https):\/\/[^ "]+$/.test(url);
+    }
+  </script>
+</body>
+</html>
