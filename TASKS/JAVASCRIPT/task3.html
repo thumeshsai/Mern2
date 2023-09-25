@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display Date on Button Click</title>
+</head>
+<body>
+    <button id="dateButton1">Show Date </button>
+    <p id="dateDisplay1"></p>
+
+    <button id="dateButton2">Show Time</button>
+    <p id="dateDisplay2"></p>
+
+    <script>
+        function displayDate1() {
+            var options = { day: 'numeric', month: 'long', year: 'numeric' };
+            var currentDate = new Date();
+            var formattedDate = currentDate.toLocaleDateString(undefined, options);
+            formattedDate = formattedDate.replace(/ /g, '/'); // Replace spaces with forward slashes
+            var dateDisplay = document.getElementById("dateDisplay1");
+            dateDisplay.innerHTML =  formattedDate;
+        }
+
+        function displayDate2() {
+            var currentDate = new Date();
+            var formattedDate = currentDate.toString();
+            var dateDisplay = document.getElementById("dateDisplay2");
+            dateDisplay.innerHTML = formattedDate;
+        }
+
+        var dateButton1 = document.getElementById("dateButton1");
+        dateButton1.addEventListener("click", displayDate1);
+
+        var dateButton2 = document.getElementById("dateButton2");
+        dateButton2.addEventListener("click", displayDate2);
+    </script>
+</body>
+</html>

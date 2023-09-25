@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task-2</title>
+  <style>
+    button:active {
+      border: 2px solid blue;
+    }
+  </style>
+</head>
+<body>
+  <form id="calculator-form">
+    <table align="center">
+      <tr>
+        <td><label for="1stNumber">1st Number:</label></td>
+        <td><input type="number" id="1stNumber"></td>
+      </tr>
+      <tr>
+        <td><label for="2ndNumber">2nd Number:</label></td>
+        <td><input type="number" id="2ndNumber"></td>
+      </tr>
+      <tr>
+        <td><button type="button" id="multiply">Multiply</button></td>
+        <td><button type="button" id="divide">Divide</button></td>
+      </tr>
+      <tr>
+        <td><label for="result">The Result Is:</label></td>
+      </tr>
+      <tr>
+        <td><span id="result"></span></td>
+      </tr>
+    </table>
+  </form>
+
+  <script>
+    const form = document.getElementById('calculator-form');
+    const firstNumberInput = document.getElementById('1stNumber');
+    const secondNumberInput = document.getElementById('2ndNumber');
+    const resultSpan = document.getElementById('result');
+
+    document.getElementById('multiply').addEventListener('click', function() {
+      const firstNumber = parseFloat(firstNumberInput.value);
+      const secondNumber = parseFloat(secondNumberInput.value);
+
+      if (!isNaN(firstNumber) && !isNaN(secondNumber)) {
+        const multiplicationResult = firstNumber * secondNumber;
+        resultSpan.textContent = multiplicationResult;
+      } else {
+        resultSpan.textContent = 'Invalid input';
+      }
+    });
+
+    document.getElementById('divide').addEventListener('click', function() {
+      const firstNumber = parseFloat(firstNumberInput.value);
+      const secondNumber = parseFloat(secondNumberInput.value);
+
+      if (!isNaN(firstNumber) && !isNaN(secondNumber)) {
+        if (secondNumber !== 0) {
+          const divisionResult = firstNumber / secondNumber;
+          resultSpan.textContent = divisionResult;
+        } else {
+          resultSpan.textContent = 'Division by zero';
+        }
+      } else {
+        resultSpan.textContent = 'Invalid input';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+/* Define styles for the table */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 80%;
+  margin: 40px auto;
+  border-radius: 10px; /* Adjust the border radius for all corners */
+  margin: 40px;
+  background-color: aqua;
+}
+
+/* Style the table headers (th) */
+th {
+  background-color: aqua;
+  padding: 8px;
+  text-align: left;
+  border-radius: 100px 100px 100px 100px; /* Rounded top corners */
+}
+
+/* Style the table data cells (td) */
+td {
+  background-color: aqua;
+  padding: 8px;
+  text-align: left;
+  margin: 30px;
+  border-radius: 100px 100px 100px 100px; /* Rounded bottom corners */
+}
+
+
+/* Hover effect */
+tr:hover {
+  background-color: aqua;
+}

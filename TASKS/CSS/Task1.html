@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+    <style>
+        /* CSS styles remain the same */
+        table {
+            background-color: aquamarine;
+        }
+        td, th {
+            border-radius: 10px;
+        }
+        #custom-table {
+            background-color: white;
+            border-collapse: separate;
+            border-spacing: 20px;
+        }
+        .sqr {
+            width: 60px;
+            height: 60px;
+            border: 1px solid #7fffd4;
+        }
+        .cell {
+            border-color: #7fffd4;
+        }
+        #cell7 {
+            border-radius: 100%;
+        }
+        #cell1, #cell4 {
+            border-radius: 10px;
+        }
+        #cell3, #cell6 {
+            border-radius: 20px;
+        }
+        #cell9 {
+            border-radius: 0px 30px 0px 30px;
+        }
+    </style>
+</head>
+<body>
+    <table border="1" width="700px" align="center">
+        <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Jill</td>
+                <td>Smith</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>Eve</td>
+                <td>Jackson</td>
+                <td>94</td>
+            </tr>
+            <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>80</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <table id="custom-table" align="center">
+        <tbody>
+            <tr>
+                <td id="cell1" class="sqr"> </td>
+                <td id="cell2" class="sqr"> </td>
+                <td id="cell3" class="sqr"> </td>
+            </tr>
+            <tr>
+                <td id="cell4" class="sqr"> </td>
+                <td id="cell5" class="sqr"> </td>
+                <td id="cell6" class="sqr"> </td>
+            </tr>
+            <tr>
+                <td id="cell7" class="sqr"> </td>
+                <td id="cell8" class="sqr"> </td>
+                <td id="cell9" class="sqr"> </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

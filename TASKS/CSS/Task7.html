@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task-5</title>
+  <style>
+    body {
+      background-color:#9F2B68;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    form {
+      background-color: #AA336A;
+      padding: 30px;
+      border-radius: 10px;
+    }
+
+    table {
+      width: 100%;
+      padding: 50px;
+    }
+
+    td {
+      padding: 5px;
+      background-color: darkpink; /* Added background color */
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    select {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+
+    button.registerbtn {
+      padding: 20px 40px; /* Increased padding to make it larger */
+      background-color: #04AA6D;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px; /* Increased font size */
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <table>
+      <tr>
+        <td><label>Name:</label></td>
+        <td><input type="text" placeholder="Your name"></td>
+      </tr>
+      <tr>
+        <td><label>Email:</label></td>
+        <td><input type="email" name="email" placeholder="Your email"></td>
+      </tr>
+      <tr>
+        <td><label for="password">Password:</label></td>
+        <td><input type="password" id="password"></td>
+      </tr>
+      <tr>
+        <td><label>Phone Number:</label></td>
+        <td><input type="number" name="number"></td>
+      </tr>
+      <tr>
+        <td><label>Gender:</label></td>
+        <td>
+          <input type="radio" name="gender">Male
+          <input type="radio" name="gender">Female
+          <input type="radio" name="gender">Other
+        </td>
+      </tr>
+      <tr>
+        <td><label>Language:</label></td>
+        <td>
+          <select>
+            <option>Select Language</option>
+            <option>Telugu</option>
+            <option>Hindi</option>
+            <option>English</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><label>Zip Code</label></td>
+        <td><input type="number"></td>
+      </tr>
+      <tr>
+        <td><label>About</label></td>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center"><button type="submit" class="registerbtn">Register</button></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>

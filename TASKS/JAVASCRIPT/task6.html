@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram Login</title>
+  <link rel="stylesheet" href="style.css">
+  <style> 
+    .container {
+      width: 300px;
+      margin: 20px auto;  
+      padding: 20px;
+      text-align: center;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      background-color: #1410103d;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    form {
+      margin-bottom: 10px;
+    }
+
+    .input-group {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    input {
+      flex-grow: 1; 
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-repeat: no-repeat;
+      background-size: 20px 20px;  
+      background-position: 10px center;  
+      padding-left: 40px;  
+    }
+ 
+    input[type="text"] {
+      background-image: url('user.png');  
+    }
+
+    input[type="password"] {
+      background-image: url('padlock.png'); 
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color:#164fd5;
+      color: #fff;
+      border: 1px solid #164fd5;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .checkbox-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .checkbox-container label {
+      flex-grow: 1; 
+      text-align: left; 
+    }
+
+    .remember-me-checkbox {
+      margin-right: 10px;
+    }
+
+    .forgot-password a,
+    .sign-up a {
+      color:#164fd5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Instagram</h1>
+    <form action="/login" method="post">
+      <div class="input-group">
+        <input type="text" name="username" placeholder="Username">
+      </div>
+      <div class="input-group">
+        <input type="password" name="password" placeholder="Password">
+      </div>
+      <button type="submit">Log in</button>
+    </form>
+    <div class="checkbox-container">
+      <label class="remember-me-checkbox" for="rememberMe">
+        <input type="checkbox" id="rememberMe" name="rememberMe"> Remember me
+      </label>
+      <a class="forgot-password" href="#">Forgot password?</a>
+    </div>
+  </div>
+  <div align="center">
+    Don't have an account? <a href="/signup">Sign up here</a>
+  </div>
+</body>
+</html>
